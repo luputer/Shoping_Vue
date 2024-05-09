@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-light bg-light fixed-top mb-10 mt-10">
         <div class="navbar-text ml-auto d-flex">
-            <button class="btn btn-sm btn-outline-success mr-2" @click="$emit('toggle')">
+            <button class="btn btn-sm btn-outline-success mr-2" @click="$emit('toggle-slide')">
                 <FontAwesomeIcon icon="dollar-sign"></FontAwesomeIcon>
             </button>
             <div class="dropdown ml-auto" v-if="cart.length > 0">
@@ -19,7 +19,7 @@
                             </span>
                             {{ item.product.name }}
                             <b>{{ item.product.price * item.qty | curencyFormat }}</b>
-                            <a href="#" class="badge badge-danger text-white" @click.stop="$emit('delete', index)">-</a>
+                            <a href="#" class="badge badge-danger text-white" @click.stop="$emit('delete-item', index)">-</a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import price from "./priceDisplay.vue";
 
 export default {
@@ -39,12 +39,11 @@ export default {
         FontAwesomeIcon
     },
     props: ["cart", "cartQty", "cartTotal"],
-    filters:{
-      curencyFormat: function (value) {
-          return 'Rp' + Number.parseFloat(value).toFixed(2);
-      }
+    filters: {
+        curencyFormat: function (value) {
+            return 'Rp' + Number.parseFloat(value).toFixed(2);
+        }
     },
 }
 
 </script>
-

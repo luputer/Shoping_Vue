@@ -2,7 +2,7 @@
   <transition-group name="fade" tag="div" @beforeEnter="before" @enter="enter" @leave="leave">
     <div class="style.lopping" v-for="item in showItem" :key="item.id">
       <div class="col-1 m-auto">
-        <button class="btn btn-primary" @click.stop="$emit('add', item)">+</button>
+        <button class="btn btn-primary" @click.stop="$emit('add-item', item)">+</button>
       </div>
       <div class="col-sm-4">
         <img :src="item.image" :alt="item.name" class="img-fluid d-block">
@@ -28,9 +28,9 @@ export default {
   },
   props: ["products", "maximum"],
   computed: {
-    showItem: function(){
+    showItem: function () {
       let max = this.maximum;
-      return this.products.filter(function(item){
+      return this.products.filter(function (item) {
         return item.price <= max;
       })
     }

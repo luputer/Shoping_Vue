@@ -4,13 +4,13 @@
 
 <script>
 export default {
-  props:{
+  props: {
     value: Number,
     prefix: {
-      type:String,
+      type: String,
       default: ' Rp '
     },
-    precision:{
+    precision: {
       type: Number,
       default: 2,
     }

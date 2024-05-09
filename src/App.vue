@@ -1,18 +1,33 @@
 <template>
   <div id="app" class="container mt-5">
-    <navbar-Menu :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle="toggleSliderStatus" @delete="deleteItem"></navbar-Menu>
-    <h1 class="display-4 font-weight-bold mt-5 text-success ">My Shop</h1>
-    <price-slider :sliderStatus="sliderStatus" :maximum="maximum" @update:maximum="updateMaxium"></price-slider>
-    <ProductList :products="products" :maximum="maximum" @add="addItem"></ProductList>
+    <checkOut 
+    :cart="cart"
+    :cartTotal="cartTotal"
+    @add="addItem"
+    @delete="deleteItem"></checkOut>
+
+    <Products
+    :cart="cart"
+    :cartQty="cartQty"
+    :cartTotal="cartTotal"
+    :maximum.sync="maximum"
+    :products="products"
+    :sliderStatus="sliderStatus"
+    @toggle="toggleSliderStatus"
+    @add="addItem"
+    @delete="deleteItem"></Products>
   </div>
 </template>
 
 <script>
-import PriceSlider from './components/PriceSlider.vue'
-import ProductList from './components/productList.vue';
-import NavbarMenu from './components/NavbarMenu.vue'
+// import PriceSlider from './components/PriceSlider.vue'
+// import ProductList from './components/productList.vue';
+// import NavbarMenu from './components/NavbarMenu.vue'
 
+//change location appVue to products
 
+import Products from './components/Products.vue'
+import checkOut from './components/checkOut.vue'
 
 
 export default {
@@ -26,9 +41,8 @@ export default {
     }
   },
   components: {
-    ProductList,
-    'price-slider': PriceSlider,
-    'navbar-Menu': NavbarMenu
+    Products,
+    checkOut
     // faShoppingCart
   },
   mounted: function () {
