@@ -1,6 +1,6 @@
 <template>
   <transition-group name="fade" tag="div" @beforeEnter="before" @enter="enter" @leave="leave">
-    <div class="style.lopping" v-for="item in showItem" :key="item.id">
+    <div class="row mb-3 align-item-center" v-for="item in showItem" :key="item.id">
       <div class="col-1 m-auto">
         <button class="btn btn-primary" @click.stop="$emit('add-item', item)">+</button>
       </div>

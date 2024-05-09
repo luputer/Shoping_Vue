@@ -2,7 +2,7 @@
     <div>
         <h1 class="display-4 font-weight-bold mt-5 text-success ">My Shop</h1>
         <navbar-Menu :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle-slide="toggleSlider"
-            @delete-item="deleteItem"></navbar-Menu>
+        @delete-item="deleteItem"></navbar-Menu>
         <price-slider :sliderStatus="sliderStatus" :maximum="maximum" @update:maximum="updateMaxium"></price-slider>
         <ProductList :products="products" :maximum="maximum" @add-item="addItem"></ProductList>
     </div>

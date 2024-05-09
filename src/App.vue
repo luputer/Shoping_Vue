@@ -1,12 +1,6 @@
 <template>
   <div id="app" class="container mt-5">
-    <checkOut 
-    :cart="cart"
-    :cartTotal="cartTotal"
-    @add="addItem"
-    @delete="deleteItem"></checkOut>
-
-    <Products
+    <router-view
     :cart="cart"
     :cartQty="cartQty"
     :cartTotal="cartTotal"
@@ -15,8 +9,8 @@
     :sliderStatus="sliderStatus"
     @toggle="toggleSliderStatus"
     @add="addItem"
-    @delete="deleteItem"></Products>
-  </div>
+    @delete="deleteItem"></router-view>
+</div>
 </template>
 
 <script>
@@ -26,8 +20,9 @@
 
 //change location appVue to products
 
-import Products from './components/Products.vue'
-import checkOut from './components/checkOut.vue'
+//delete because use VueRouter
+// import Products from './components/Products.vue'
+// import checkOut from './components/checkOut.vue'
 
 
 export default {
@@ -41,8 +36,9 @@ export default {
     }
   },
   components: {
-    Products,
-    checkOut
+    //coment because use view router 
+    // Products,
+    // checkOut
     // faShoppingCart
   },
   mounted: function () {

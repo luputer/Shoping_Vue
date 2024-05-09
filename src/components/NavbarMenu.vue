@@ -22,6 +22,7 @@
                             <a href="#" class="badge badge-danger text-white" @click.stop="$emit('delete-item', index)">-</a>
                         </div>
                     </div>
+                    <router-link class="btn btnim btn-outline float-right text-dark mr-2 " to="/checkout">Checkout</router-link>
                 </div>
             </div>
         </div>
